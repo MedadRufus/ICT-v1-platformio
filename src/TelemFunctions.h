@@ -92,9 +92,13 @@ void call_telem()
   long f = float(e / 17576L);
 
   if (f < 10)
+  {
     call_telemetry[1] = f + '0';
+  }
   else
+  {
     call_telemetry[1] = f - 10 + 'A';
+  }
 
   long g = e - f * 17576L;
   int h = int(g / 676);
@@ -123,7 +127,8 @@ void loc_dbm_telem()
   delay(20);
   ADCSRA |= _BV(ADSC);
   while (bit_is_set(ADCSRA, ADSC))
-    ;
+  {
+  }
   wADC = ADCW;
   temp = (wADC - 322.2) / 1.43;
 
@@ -142,28 +147,43 @@ void loc_dbm_telem()
   volt = volt * 3.35f;
 
   if (volt < 3.0)
+  {
     volt = 3.0;
+  }
   if (volt > 4.95)
+  {
     volt = 4.95;
+  }
 
   if (temp < -49)
+  {
     temp = -49;
+  }
   if (temp > 39)
+  {
     temp = 39;
+  }
 
   int GPS = 0;
   if ((lon != oldlon) || (lat != oldlat))
+  {
     GPS = 1;
+  }
   else
+  {
     GPS = 0;
-
+  }
   oldlon = lon;
   oldlat = lat;
 
   if (Sats < 5)
+  {
     Sats = 0;
+  }
   else
+  {
     Sats = 1;
+  }
   /*
       Serial.print(temp);
       Serial.print(" ");
@@ -224,43 +244,81 @@ void loc_dbm_telem()
   dbm_telemetry = f - (g * 19L);
 
   if (dbm_telemetry == 0)
+  {
     dbm_telemetry = 0;
+  }
   else if (dbm_telemetry == 1)
+  {
     dbm_telemetry = 3;
+  }
   else if (dbm_telemetry == 2)
+  {
     dbm_telemetry = 7;
+  }
   else if (dbm_telemetry == 3)
+  {
     dbm_telemetry = 10;
+  }
   else if (dbm_telemetry == 4)
+  {
     dbm_telemetry = 13;
+  }
   else if (dbm_telemetry == 5)
+  {
     dbm_telemetry = 17;
+  }
   else if (dbm_telemetry == 6)
+  {
     dbm_telemetry = 20;
+  }
   else if (dbm_telemetry == 7)
+  {
     dbm_telemetry = 23;
+  }
   else if (dbm_telemetry == 8)
+  {
     dbm_telemetry = 27;
+  }
   else if (dbm_telemetry == 9)
+  {
     dbm_telemetry = 30;
+  }
   else if (dbm_telemetry == 10)
+  {
     dbm_telemetry = 33;
+  }
   else if (dbm_telemetry == 11)
+  {
     dbm_telemetry = 37;
+  }
   else if (dbm_telemetry == 12)
+  {
     dbm_telemetry = 40;
+  }
   else if (dbm_telemetry == 13)
+  {
     dbm_telemetry = 43;
+  }
   else if (dbm_telemetry == 14)
+  {
     dbm_telemetry = 47;
+  }
   else if (dbm_telemetry == 15)
+  {
     dbm_telemetry = 50;
+  }
   else if (dbm_telemetry == 16)
+  {
     dbm_telemetry = 53;
+  }
   else if (dbm_telemetry == 17)
+  {
     dbm_telemetry = 57;
+  }
   else if (dbm_telemetry == 18)
+  {
     dbm_telemetry = 60;
+  }
 
   // Serial.println(dbm_telemetry);
 }
