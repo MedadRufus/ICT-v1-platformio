@@ -2,6 +2,7 @@
    Telemetry functions
 */
 #include "temperature.hpp"
+#include "solar_voltage.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
@@ -120,23 +121,13 @@ void loc_dbm_telem()
   gps_speed = gps.speed.knots();
 
   int temp = 0;
-  float volt = 0;
 
   temp = get_temperature();
 
   // Read voltage from pin A0. Solar voltage.
 
   delay(20);
-  analogReference(AR_DEFAULT);
-  unsigned int sensorVolt = analogRead(0);
-  sensorVolt += analogRead(0);
-  sensorVolt += analogRead(0);
-  sensorVolt += analogRead(0);
-  sensorVolt += analogRead(0);
-  sensorVolt = sensorVolt / 5;
-  volt = sensorVolt * 1.1f;
-  volt = volt / 1023.0f;
-  volt = volt * 3.35f;
+  float volt = get_solar_voltage();
 
   if (volt < 3.0)
   {
