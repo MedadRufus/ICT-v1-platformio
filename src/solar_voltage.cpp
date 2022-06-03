@@ -13,5 +13,6 @@ float get_solar_voltage()
     volt = sensorVolt * 1.1f;
     volt = volt / 1023.0f;
     volt = volt * 3.35f;
+    return volt;
 }
 
