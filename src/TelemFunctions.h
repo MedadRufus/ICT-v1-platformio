@@ -135,7 +135,7 @@ void loc_dbm_telem()
   // Read voltage from pin A0. Solar voltage.
 
   delay(20);
-  analogReference(AR_DEFAULT);
+  analogReference(DEFAULT);
   unsigned int sensorVolt = analogRead(0);
   sensorVolt += analogRead(0);
   sensorVolt += analogRead(0);

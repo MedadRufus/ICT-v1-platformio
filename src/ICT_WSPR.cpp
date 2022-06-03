@@ -15,11 +15,11 @@
 #include <rs_common.h>
 #include <int.h>
 #include <string.h>
+#include <timer.hpp>
 
 #include "Wire.h"
 #include "ModeDef.h" // JT mode definitions
 
-#define WSPR_CTC 2668 // CTC value for WSPR - 10672 @ 16Mhz //5336 @ 8Mhz //2668 @ 4Mhz //1334 @ 2Mhz //667 @ 1Mhz
 
 // Enumerations
 enum mode
@@ -86,13 +86,7 @@ void setup()
   delay(500);
   // Serial.println(F("START"));
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
-  TCCR1A = 0;
-  TCNT1 = 0;
-  TCCR1B = (1 << CS12) |
-           (1 << CS10) |
-           (1 << WGM12);
-  TIMSK1 = (1 << OCIE1A);
-  OCR1A = WSPR_CTC;
+  setup_timer_interrupt();
   interrupts();
   // wdt_reset();
 }
