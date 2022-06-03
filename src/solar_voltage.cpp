@@ -15,4 +15,3 @@ float get_solar_voltage()
     volt = volt * 3.35f;
     return volt;
 }
-

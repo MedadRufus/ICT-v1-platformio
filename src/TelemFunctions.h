@@ -3,6 +3,7 @@
 */
 #include "temperature.hpp"
 #include "solar_voltage.hpp"
+#include "utils.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
