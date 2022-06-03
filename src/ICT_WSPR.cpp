@@ -20,7 +20,6 @@
 #include "Wire.h"
 #include "ModeDef.h" // JT mode definitions
 
-
 // Enumerations
 enum mode
 {
@@ -65,7 +64,6 @@ int gps_speed = 0;
 #include "messageGen.h"     // telemetry > message generation
 #include "GPS.h"            // code to set U-Blox GPS into airborne mode
 #include "timing3.h"        // scheduling
-
 
 void setup()
 {
