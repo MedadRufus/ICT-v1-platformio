@@ -101,11 +101,18 @@ void loop()
 {
   wdt_reset();
   while (Serial.available() > 0)
-    if (gps.encode(Serial.read()))    // GPS related functions need to be in here to work with tinyGPS Plus library
+  {
+    if (gps.encode(Serial.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
+    {
       if (timeStatus() == timeNotSet) // only sets time if already not done previously
       {
         setGPStime(); // sets system time to GPS UTC time for sync
       }
+    }
+  }
+
   if (gps.location.isValid())
+  {
     TXtiming(); // process timing
+  }
 }
