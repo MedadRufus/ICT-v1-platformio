@@ -58,7 +58,6 @@ int alt_meters = 0;
 bool telemetry_set = false;
 int Sats = 0;
 int gps_speed = 0;
-volatile bool proceed = false;
 
 #include "TelemFunctions.h" // various telemetry functions
 #include "encode.h"         // symbol encoding
@@ -67,10 +66,6 @@ volatile bool proceed = false;
 #include "GPS.h"            // code to set U-Blox GPS into airborne mode
 #include "timing3.h"        // scheduling
 
-ISR(TIMER1_COMPA_vect)
-{
-  proceed = true;
-}
 
 void setup()
 {
