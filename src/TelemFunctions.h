@@ -3,6 +3,7 @@
 */
 #include "temperature.hpp"
 #include "solar_voltage.hpp"
+#include "utils.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
@@ -113,11 +114,6 @@ void call_telem()
   long k = i - j * 26L;
   int l = int(k / 1);
   call_telemetry[5] = l + 'A';
-}
-
-float clamp(float n, float lower, float upper)
-{
-  return max(lower, min(n, upper));
 }
 
 void loc_dbm_telem()
