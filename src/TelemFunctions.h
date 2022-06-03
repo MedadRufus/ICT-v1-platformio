@@ -120,12 +120,9 @@ void loc_dbm_telem()
   Sats = gps.satellites.value();
   gps_speed = gps.speed.knots();
 
-  int temp = 0;
-
-  temp = get_temperature();
+  int temp = get_temperature();
 
   // Read voltage from pin A0. Solar voltage.
-
   delay(20);
   float volt = get_solar_voltage();
 
