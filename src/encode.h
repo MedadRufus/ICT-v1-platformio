@@ -10,7 +10,7 @@ void encode() // Loop through the string, transmitting one character at a time
   {
     si5351.set_freq((freq * 100) + (tx_buffer[i] * tone_spacing), SI5351_CLK0);
     delay(tone_delay);
-    // wdt_reset();
+    wdt_reset();
   }
 
   si5351.output_enable(SI5351_CLK0, 0); // Turn off the output
