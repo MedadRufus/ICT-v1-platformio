@@ -115,6 +115,11 @@ void call_telem()
   call_telemetry[5] = l + 'A';
 }
 
+float clamp(float n, float lower, float upper)
+{
+  return max(lower, min(n, upper));
+}
+
 void loc_dbm_telem()
 {
   Sats = gps.satellites.value();
@@ -126,23 +131,8 @@ void loc_dbm_telem()
   delay(20);
   float volt = get_solar_voltage();
 
-  if (volt < 3.0)
-  {
-    volt = 3.0;
-  }
-  if (volt > 4.95)
-  {
-    volt = 4.95;
-  }
-
-  if (temp < -49)
-  {
-    temp = -49;
-  }
-  if (temp > 39)
-  {
-    temp = 39;
-  }
+  volt = clamp(volt, 3.0, 4.94);
+  temp = clamp(temp, -49, 39);
 
   int GPS = 0;
   if ((lon != oldlon) || (lat != oldlat))
