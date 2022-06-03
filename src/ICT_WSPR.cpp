@@ -7,7 +7,7 @@
    and it is for non-commercial use only.
    Please see readme file for more information.
 */
-#include <avr/wdt.h>
+// #include <avr/wdt.h>
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 #include <si5351.h>
@@ -74,7 +74,7 @@ ISR(TIMER1_COMPA_vect)
 
 void setup()
 {
-  wdt_enable(WDTO_8S); // First enable the watchdog timer
+  // wdt_enable(WDTO_8S); // First enable the watchdog timer
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
@@ -94,12 +94,12 @@ void setup()
   TIMSK1 = (1 << OCIE1A);
   OCR1A = WSPR_CTC;
   interrupts();
-  wdt_reset();
+  // wdt_reset();
 }
 
 void loop()
 {
-  wdt_reset();
+  // wdt_reset();
   while (Serial.available() > 0)
     if (gps.encode(Serial.read()))    // GPS related functions need to be in here to work with tinyGPS Plus library
       if (timeStatus() == timeNotSet) // only sets time if already not done previously
