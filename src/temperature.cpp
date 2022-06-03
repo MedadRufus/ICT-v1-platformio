@@ -3,6 +3,7 @@
 int get_temperature()
 {
     int wADC;
+    int temp;
 
     ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
     ADCSRA |= _BV(ADEN);
@@ -12,5 +13,7 @@ int get_temperature()
     {
     }
     wADC = ADCW;
-    return (wADC - 322.2) / 1.43;
+    temp = (wADC - 322.2) / 1.43;
+
+    return temp;
 }
