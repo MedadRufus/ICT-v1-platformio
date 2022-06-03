@@ -1,6 +1,7 @@
 /*
    Telemetry functions
 */
+#include "temperature.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
@@ -118,19 +119,10 @@ void loc_dbm_telem()
   Sats = gps.satellites.value();
   gps_speed = gps.speed.knots();
 
-  int wADC;
   int temp = 0;
   float volt = 0;
 
-  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
-  ADCSRA |= _BV(ADEN);
-  delay(20);
-  ADCSRA |= _BV(ADSC);
-  while (bit_is_set(ADCSRA, ADSC))
-  {
-  }
-  wADC = ADCW;
-  temp = (wADC - 322.2) / 1.43;
+  temp = get_temperature();
 
   // Read voltage from pin A0. Solar voltage.
 
