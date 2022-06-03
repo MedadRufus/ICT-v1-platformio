@@ -116,11 +116,6 @@ void call_telem()
   call_telemetry[5] = l + 'A';
 }
 
-float clamp(float n, float lower, float upper)
-{
-  return max(lower, min(n, upper));
-}
-
 void loc_dbm_telem()
 {
   Sats = gps.satellites.value();
