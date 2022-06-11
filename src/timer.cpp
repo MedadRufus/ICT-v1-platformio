@@ -4,18 +4,18 @@
 
 volatile bool proceed = false;
 
-ISR(TIMER1_COMPA_vect)
-{
-    proceed = true;
-}
+// ISR(TIMER1_COMPA_vect)
+// {
+//     proceed = true;
+// }
 
 void setup_timer_interrupt()
 {
-    TCCR1A = 0;
-    TCNT1 = 0;
-    TCCR1B = (1 << CS12) |
-             (1 << CS10) |
-             (1 << WGM12);
-    TIMSK1 = (1 << OCIE1A);
-    OCR1A = WSPR_CTC;
+    // TCCR1A = 0;
+    // TCNT1 = 0;
+    // TCCR1B = (1 << CS12) |
+    //          (1 << CS10) |
+    //          (1 << WGM12);
+    // TIMSK1 = (1 << OCIE1A);
+    // OCR1A = WSPR_CTC;
 }
