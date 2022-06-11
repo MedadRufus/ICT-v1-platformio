@@ -151,16 +151,16 @@ void loc_dbm_telem()
     Sats = 1;
   }
   /*
-      Serial.print(temp);
-      Serial.print(" ");
-      Serial.print(volt);
-      Serial.print(" ");
-      Serial.print(gps_speed);
-      Serial.print(" ");
-      Serial.print(GPS);
-      Serial.print(" ");
-      Serial.print(Sats);
-      Serial.print("  ");
+      Serial1.print(temp);
+      Serial1.print(" ");
+      Serial1.print(volt);
+      Serial1.print(" ");
+      Serial1.print(gps_speed);
+      Serial1.print(" ");
+      Serial1.print(GPS);
+      Serial1.print(" ");
+      Serial1.print(Sats);
+      Serial1.print("  ");
   */
   int temp_raw = (int)(1024L * (temp * 0.01 + 2.73)) / 5;
   temp_raw = (int)(temp_raw - 457) / 2;
@@ -180,11 +180,11 @@ void loc_dbm_telem()
   long z = (y * 2L) + (int)GPS;
   long xy = (z * 2L) + (int)Sats;
   /*
-    Serial.println(temp_raw);
-    Serial.println(x);
-    Serial.println(y);
-    Serial.println(z);
-    Serial.println(xy);
+    Serial1.println(temp_raw);
+    Serial1.println(x);
+    Serial1.println(y);
+    Serial1.println(z);
+    Serial1.println(xy);
   */
   long a = (int)(xy / 34200L);
   loc_telemetry[0] = a + 'A';
@@ -201,11 +201,11 @@ void loc_dbm_telem()
   long g = (int)(f / 19L);
   loc_telemetry[3] = g + '0';
   /*
-      Serial.print(loc_telemetry[0]);
-      Serial.print(loc_telemetry[1]);
-      Serial.print(loc_telemetry[2]);
-      Serial.print(loc_telemetry[3]);
-      Serial.print(" ");
+      Serial1.print(loc_telemetry[0]);
+      Serial1.print(loc_telemetry[1]);
+      Serial1.print(loc_telemetry[2]);
+      Serial1.print(loc_telemetry[3]);
+      Serial1.print(" ");
       */
   dbm_telemetry = f - (g * 19L);
 
@@ -286,7 +286,7 @@ void loc_dbm_telem()
     dbm_telemetry = 60;
   }
 
-  // Serial.println(dbm_telemetry);
+  // Serial1.println(dbm_telemetry);
 }
 
 void rf_on()
@@ -305,6 +305,6 @@ void rf_off()
 
 void send_serial_data()
 {
-  Serial.print(F("Age "));
-  Serial.println(gps.location.age());
+  Serial1.print(F("Age "));
+  Serial1.println(gps.location.age());
 }

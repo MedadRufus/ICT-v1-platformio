@@ -71,13 +71,13 @@ void setup()
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
-  Serial.begin(9600);
-  delay(1000);       // Serial time to start
+  Serial1.begin(9600);
+  delay(1000);       // Serial1 time to start
   setGPS_AirBorne(); // Set GPS into airborne mode
   delay(500);
   gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
-  // Serial.println(F("START"));
+  // Serial1.println(F("START"));
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
   setup_timer_interrupt();
   interrupts();
@@ -87,9 +87,9 @@ void setup()
 void loop()
 {
   // wdt_reset();
-  while (Serial.available() > 0)
+  while (Serial1.available() > 0)
   {
-    if (gps.encode(Serial.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
+    if (gps.encode(Serial1.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
     {
       if (timeStatus() == timeNotSet) // only sets time if already not done previously
       {
