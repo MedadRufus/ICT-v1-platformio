@@ -7,7 +7,7 @@
    and it is for non-commercial use only.
    Please see readme file for more information.
 */
-// #include <avr/wdt.h>
+#include <IWatchdog.h>
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 #include <si5351.h>
@@ -67,7 +67,8 @@ int gps_speed = 0;
 
 void setup()
 {
-  // wdt_enable(WDTO_8S); // First enable the watchdog timer
+  // Init the watchdog timer with 1 second timeout
+  IWatchdog.begin(1000000);
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
@@ -81,12 +82,12 @@ void setup()
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
   setup_timer_interrupt();
   interrupts();
-  // wdt_reset();
+  IWatchdog.reload();
 }
 
 void loop()
 {
-  // wdt_reset();
+  IWatchdog.reload();
   while (Serial.available() > 0)
   {
     if (gps.encode(Serial.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
