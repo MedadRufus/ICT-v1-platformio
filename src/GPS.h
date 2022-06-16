@@ -4,12 +4,12 @@
 
 void sendUBX(uint8_t *MSG, uint8_t len)
 {
-  Serial1.flush();
-  Serial1.write(0xFF);
+  Serial.flush();
+  Serial.write(0xFF);
   delay(500);
   for (int i = 0; i < len; i++)
   {
-    Serial1.write(MSG[i]);
+    Serial.write(MSG[i]);
   }
 }
 
@@ -54,9 +54,9 @@ boolean getUBX_ACK(uint8_t *MSG)
       return false;
     }
     // Make sure data is available to read
-    if (Serial1.available())
+    if (Serial.available())
     {
-      b = Serial1.read();
+      b = Serial.read();
 
       // Check that bytes arrive in sequence as per expected ACK packet
       if (b == ackPacket[ackByteID])
