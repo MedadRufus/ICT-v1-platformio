@@ -3,7 +3,7 @@
 float get_solar_voltage()
 {
     float volt;
-    analogReference(DEFAULT);
+    analogReference(AR_DEFAULT);
     unsigned int sensorVolt = analogRead(0);
     sensorVolt += analogRead(0);
     sensorVolt += analogRead(0);
