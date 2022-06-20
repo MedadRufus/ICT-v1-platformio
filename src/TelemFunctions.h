@@ -151,18 +151,18 @@ void loc_dbm_telem()
   {
     Sats = 1;
   }
-  /*
-      debugSerial.print(temp);
-      debugSerial.print(" ");
-      debugSerial.print(volt);
-      debugSerial.print(" ");
-      debugSerial.print(gps_speed);
-      debugSerial.print(" ");
-      debugSerial.print(GPS);
-      debugSerial.print(" ");
-      debugSerial.print(Sats);
-      debugSerial.print("  ");
-  */
+
+  debugSerial.print(temp);
+  debugSerial.print(" ");
+  debugSerial.print(volt);
+  debugSerial.print(" ");
+  debugSerial.print(gps_speed);
+  debugSerial.print(" ");
+  debugSerial.print(GPS);
+  debugSerial.print(" ");
+  debugSerial.print(Sats);
+  debugSerial.print("  ");
+
   int temp_raw = (int)(1024L * (temp * 0.01 + 2.73)) / 5;
   temp_raw = (int)(temp_raw - 457) / 2;
 
@@ -180,13 +180,13 @@ void loc_dbm_telem()
   long y = (x * 42L) + (int)gps_speed / 2;
   long z = (y * 2L) + (int)GPS;
   long xy = (z * 2L) + (int)Sats;
-  /*
-    debugSerial.println(temp_raw);
-    debugSerial.println(x);
-    debugSerial.println(y);
-    debugSerial.println(z);
-    debugSerial.println(xy);
-  */
+
+  debugSerial.println(temp_raw);
+  debugSerial.println(x);
+  debugSerial.println(y);
+  debugSerial.println(z);
+  debugSerial.println(xy);
+
   long a = (int)(xy / 34200L);
   loc_telemetry[0] = a + 'A';
 
@@ -201,13 +201,13 @@ void loc_dbm_telem()
   long f = d - (190L * e);
   long g = (int)(f / 19L);
   loc_telemetry[3] = g + '0';
-  /*
-      debugSerial.print(loc_telemetry[0]);
-      debugSerial.print(loc_telemetry[1]);
-      debugSerial.print(loc_telemetry[2]);
-      debugSerial.print(loc_telemetry[3]);
-      debugSerial.print(" ");
-      */
+
+  debugSerial.print(loc_telemetry[0]);
+  debugSerial.print(loc_telemetry[1]);
+  debugSerial.print(loc_telemetry[2]);
+  debugSerial.print(loc_telemetry[3]);
+  debugSerial.print(" ");
+
   dbm_telemetry = f - (g * 19L);
 
   if (dbm_telemetry == 0)
@@ -287,7 +287,7 @@ void loc_dbm_telem()
     dbm_telemetry = 60;
   }
 
-  // debugSerial.println(dbm_telemetry);
+  debugSerial.println(dbm_telemetry);
 }
 
 void rf_on()
