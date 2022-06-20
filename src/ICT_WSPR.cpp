@@ -16,6 +16,7 @@
 #include <int.h>
 #include <string.h>
 #include <timer.hpp>
+#include "comm_ports.hpp"
 
 #include "Wire.h"
 #include "ModeDef.h" // JT mode definitions
@@ -72,13 +73,13 @@ void setup()
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
-  Serial.begin(9600);
-  delay(1000);       // Serial time to start
+  gpsSerial.begin(9600);
+  delay(1000);       // gpsSerial time to start
   setGPS_AirBorne(); // Set GPS into airborne mode
   delay(500);
   gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
-  // Serial.println(F("START"));
+  // debugSerial.println(F("START"));
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
   setup_timer_interrupt();
   interrupts();
@@ -88,9 +89,9 @@ void setup()
 void loop()
 {
   IWatchdog.reload();
-  while (Serial.available() > 0)
+  while (gpsSerial.available() > 0)
   {
-    if (gps.encode(Serial.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
+    if (gps.encode(gpsSerial.read())) // GPS related functions need to be in here to work with tinyGPS Plus library
     {
       if (timeStatus() == timeNotSet) // only sets time if already not done previously
       {

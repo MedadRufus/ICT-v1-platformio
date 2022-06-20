@@ -2,14 +2,16 @@
    GPS functions
 */
 
+#include "comm_ports.hpp"
+
 void sendUBX(uint8_t *MSG, uint8_t len)
 {
-  Serial.flush();
-  Serial.write(0xFF);
+  gpsSerial.flush();
+  gpsSerial.write(0xFF);
   delay(500);
   for (int i = 0; i < len; i++)
   {
-    Serial.write(MSG[i]);
+    gpsSerial.write(MSG[i]);
   }
 }
 
@@ -54,9 +56,9 @@ boolean getUBX_ACK(uint8_t *MSG)
       return false;
     }
     // Make sure data is available to read
-    if (Serial.available())
+    if (gpsSerial.available())
     {
-      b = Serial.read();
+      b = gpsSerial.read();
 
       // Check that bytes arrive in sequence as per expected ACK packet
       if (b == ackPacket[ackByteID])

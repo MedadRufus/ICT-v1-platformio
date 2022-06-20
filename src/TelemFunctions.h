@@ -4,6 +4,7 @@
 #include "temperature.hpp"
 #include "solar_voltage.hpp"
 #include "utils.hpp"
+#include "comm_ports.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
@@ -151,16 +152,16 @@ void loc_dbm_telem()
     Sats = 1;
   }
   /*
-      Serial.print(temp);
-      Serial.print(" ");
-      Serial.print(volt);
-      Serial.print(" ");
-      Serial.print(gps_speed);
-      Serial.print(" ");
-      Serial.print(GPS);
-      Serial.print(" ");
-      Serial.print(Sats);
-      Serial.print("  ");
+      debugSerial.print(temp);
+      debugSerial.print(" ");
+      debugSerial.print(volt);
+      debugSerial.print(" ");
+      debugSerial.print(gps_speed);
+      debugSerial.print(" ");
+      debugSerial.print(GPS);
+      debugSerial.print(" ");
+      debugSerial.print(Sats);
+      debugSerial.print("  ");
   */
   int temp_raw = (int)(1024L * (temp * 0.01 + 2.73)) / 5;
   temp_raw = (int)(temp_raw - 457) / 2;
@@ -180,11 +181,11 @@ void loc_dbm_telem()
   long z = (y * 2L) + (int)GPS;
   long xy = (z * 2L) + (int)Sats;
   /*
-    Serial.println(temp_raw);
-    Serial.println(x);
-    Serial.println(y);
-    Serial.println(z);
-    Serial.println(xy);
+    debugSerial.println(temp_raw);
+    debugSerial.println(x);
+    debugSerial.println(y);
+    debugSerial.println(z);
+    debugSerial.println(xy);
   */
   long a = (int)(xy / 34200L);
   loc_telemetry[0] = a + 'A';
@@ -201,11 +202,11 @@ void loc_dbm_telem()
   long g = (int)(f / 19L);
   loc_telemetry[3] = g + '0';
   /*
-      Serial.print(loc_telemetry[0]);
-      Serial.print(loc_telemetry[1]);
-      Serial.print(loc_telemetry[2]);
-      Serial.print(loc_telemetry[3]);
-      Serial.print(" ");
+      debugSerial.print(loc_telemetry[0]);
+      debugSerial.print(loc_telemetry[1]);
+      debugSerial.print(loc_telemetry[2]);
+      debugSerial.print(loc_telemetry[3]);
+      debugSerial.print(" ");
       */
   dbm_telemetry = f - (g * 19L);
 
@@ -286,7 +287,7 @@ void loc_dbm_telem()
     dbm_telemetry = 60;
   }
 
-  // Serial.println(dbm_telemetry);
+  // debugSerial.println(dbm_telemetry);
 }
 
 void rf_on()
@@ -305,6 +306,6 @@ void rf_off()
 
 void send_serial_data()
 {
-  Serial.print(F("Age "));
-  Serial.println(gps.location.age());
+  debugSerial.print(F("Age "));
+  debugSerial.println(gps.location.age());
 }
