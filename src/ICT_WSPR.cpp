@@ -79,7 +79,7 @@ void setup()
   delay(500);
   gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
-  // Serial.println(F("START"));
+  // debugSerial.println(F("START"));
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
   setup_timer_interrupt();
   interrupts();
