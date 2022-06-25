@@ -70,6 +70,7 @@ void setup()
 {
   // Init the watchdog timer with 10 second timeout
   IWatchdog.begin(10000000);
+  debugSerial.println(F("START"));
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
@@ -79,7 +80,6 @@ void setup()
   delay(500);
   gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
-  debugSerial.println(F("START"));
   noInterrupts(); // Set up Timer1 for interrupts every symbol period.
   setup_timer_interrupt();
   interrupts();
