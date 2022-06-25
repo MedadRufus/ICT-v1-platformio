@@ -32,7 +32,7 @@ radio_status_t radio_self_test()
 
 void rf_on()
 {
-    digitalWrite(4, HIGH);
+    digitalWrite(SI5351_ENABLE_PIN, HIGH);
     delay(2);
     si5351.init(SI5351_CRYSTAL_LOAD_8PF, SI5351_TCXO_FREQUENCY, 0);
     si5351.drive_strength(SI5351_CLK0, SI5351_DRIVE_8MA); // Set for max power if desired. Check datasheet.
@@ -41,5 +41,5 @@ void rf_on()
 
 void rf_off()
 {
-    digitalWrite(4, LOW);
+    digitalWrite(SI5351_ENABLE_PIN, LOW);
 }
