@@ -68,8 +68,8 @@ int gps_speed = 0;
 
 void setup()
 {
-  // Init the watchdog timer with 1 second timeout
-  IWatchdog.begin(1000000);
+  // Init the watchdog timer with 10 second timeout
+  IWatchdog.begin(10000000);
   pinMode(4, OUTPUT);
   digitalWrite(4, LOW); // Si5351 off
   delay(1000);          // Allow GPS time to start
