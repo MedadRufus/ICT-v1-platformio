@@ -15,7 +15,6 @@
 #include <rs_common.h>
 #include <int.h>
 #include <string.h>
-#include <timer.hpp>
 #include "comm_ports.hpp"
 
 #include "Wire.h"
@@ -80,9 +79,6 @@ void setup()
   gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
   debugSerial.println(F("START"));
-  noInterrupts(); // Set up Timer1 for interrupts every symbol period.
-  setup_timer_interrupt();
-  interrupts();
   IWatchdog.reload();
 }
 
