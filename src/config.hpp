@@ -11,3 +11,8 @@
 
 #define CALL_SIGN "SA7BSS"
 #define SI5351_TCXO_FREQUENCY 25000000
+
+/**
+ * @brief Pin selection
+ */
+#define SI5351_ENABLE_PIN 4

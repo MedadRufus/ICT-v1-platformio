@@ -6,6 +6,7 @@
 #include "utils.hpp"
 #include "comm_ports.hpp"
 #include "config.hpp"
+#include "radio.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
@@ -291,19 +292,6 @@ void loc_dbm_telem()
   debugSerial.println(dbm_telemetry);
 }
 
-void rf_on()
-{
-  digitalWrite(4, HIGH);
-  delay(2);
-  si5351.init(SI5351_CRYSTAL_LOAD_8PF, SI5351_TCXO_FREQUENCY, 0);
-  si5351.drive_strength(SI5351_CLK0, SI5351_DRIVE_8MA); // Set for max power if desired. Check datasheet.
-  si5351.output_enable(SI5351_CLK0, 0);                 // Disable the clock initially
-}
-
-void rf_off()
-{
-  digitalWrite(4, LOW);
-}
 
 void send_serial_data()
 {

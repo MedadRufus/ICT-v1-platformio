@@ -71,8 +71,8 @@ void setup()
   // Init the watchdog timer with 10 second timeout
   IWatchdog.begin(10000000);
   pinMode(4, OUTPUT);
-  digitalWrite(4, LOW); // Si5351 off
-  delay(1000);          // Allow GPS time to start
+  digitalWrite(SI5351_ENABLE_PIN, LOW); // Si5351 off
+  delay(1000);                          // Allow GPS time to start
   gpsSerial.begin(9600);
   delay(1000);       // gpsSerial time to start
   setGPS_AirBorne(); // Set GPS into airborne mode
