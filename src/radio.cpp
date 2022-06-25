@@ -17,7 +17,17 @@ extern Si5351 si5351;
 
 radio_status_t radio_self_test()
 {
-    return failure;
+    radio_status_t status;
+    bool i2c_found = si5351.init(SI5351_CRYSTAL_LOAD_8PF, 0, 0);
+
+    if (!i2c_found)
+    {
+        return failure;
+    }
+    else
+    {
+        return success;
+    }
 }
 
 void rf_on()
