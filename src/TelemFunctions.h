@@ -5,6 +5,7 @@
 #include "solar_voltage.hpp"
 #include "utils.hpp"
 #include "comm_ports.hpp"
+#include "config.hpp"
 
 void setGPStime() // Sets system time from GPS
 {
