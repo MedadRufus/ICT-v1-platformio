@@ -9,16 +9,17 @@
  *
  */
 
-/**
- * @brief radio status enums
- *
- */
-typedef enum
+class radio
 {
-    success,
-    failure
-} radio_status_t;
-
-radio_status_t radio_self_test();
-void rf_on();
-void rf_off();
+public:
+    enum class radio_status_t
+    {
+        success,
+        failure
+    };
+    radio();
+    ~radio();
+    radio_status_t radio_self_test();
+    void rf_on();
+    void rf_off();
+};
