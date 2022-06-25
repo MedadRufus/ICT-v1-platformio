@@ -15,6 +15,14 @@
 
 extern Si5351 si5351;
 
+radio::radio()
+{
+}
+
+radio::~radio()
+{
+}
+
 radio::radio_status_t radio::radio_self_test()
 {
     radio_status_t status;
