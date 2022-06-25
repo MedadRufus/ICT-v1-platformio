@@ -18,7 +18,10 @@ extern Si5351 si5351;
 radio_status_t radio_self_test()
 {
     radio_status_t status;
+    digitalWrite(SI5351_ENABLE_PIN, HIGH);
+    delay(2);
     bool i2c_found = si5351.init(SI5351_CRYSTAL_LOAD_8PF, 0, 0);
+    digitalWrite(SI5351_ENABLE_PIN, LOW);
 
     if (!i2c_found)
     {
