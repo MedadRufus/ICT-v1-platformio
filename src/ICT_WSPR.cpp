@@ -15,7 +15,6 @@
 #include <rs_common.h>
 #include <int.h>
 #include <string.h>
-#include <timer.hpp>
 #include "comm_ports.hpp"
 
 #include "Wire.h"
