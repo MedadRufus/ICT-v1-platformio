@@ -85,8 +85,8 @@ void call_telem()
   MH[0] += ((lon % 200000) / 8333);
   MH[1] += ((lat % 100000) / 4166);
 
-  call_telemetry[0] = 'Q'; // telemetry channel 11
-  call_telemetry[2] = '1';
+  call_telemetry[0] = 'X'; // telemetry channel 15
+  call_telemetry[2] = 'X';
 
   int a = MH[0] - 'A';
   int b = MH[1] - 'A';
