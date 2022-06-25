@@ -21,6 +21,14 @@
 #include "ModeDef.h" // JT mode definitions
 #include "config.hpp"
 
+#include "TelemFunctions.h" // various telemetry functions
+#include "encode.h"         // symbol encoding
+#include "setMode.h"        // mode functions
+#include "messageGen.h"     // telemetry > message generation
+#include "GPS.h"            // code to set U-Blox GPS into airborne mode
+#include "timing3.h"        // scheduling
+
+
 // Enumerations
 enum mode
 {
@@ -59,12 +67,6 @@ bool telemetry_set = false;
 int Sats = 0;
 int gps_speed = 0;
 
-#include "TelemFunctions.h" // various telemetry functions
-#include "encode.h"         // symbol encoding
-#include "setMode.h"        // mode functions
-#include "messageGen.h"     // telemetry > message generation
-#include "GPS.h"            // code to set U-Blox GPS into airborne mode
-#include "timing3.h"        // scheduling
 
 void setup()
 {
