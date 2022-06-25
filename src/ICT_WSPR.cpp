@@ -28,7 +28,6 @@
 #include "GPS.h"            // code to set U-Blox GPS into airborne mode
 #include "timing3.h"        // scheduling
 
-
 // Enumerations
 enum mode
 {
@@ -66,7 +65,6 @@ int alt_meters = 0;
 bool telemetry_set = false;
 int Sats = 0;
 int gps_speed = 0;
-
 
 void setup()
 {

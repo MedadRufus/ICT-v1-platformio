@@ -5,7 +5,6 @@
 #include "comm_ports.hpp"
 #include "Arduino.h"
 
-
 void sendUBX(uint8_t *MSG, uint8_t len)
 {
   gpsSerial.flush();

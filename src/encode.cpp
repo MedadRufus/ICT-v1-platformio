@@ -7,14 +7,11 @@
 #include "si5351.h"
 #include <IWatchdog.h>
 
-
 extern uint8_t tx_buffer[255];
 extern uint8_t symbol_count;
 extern Si5351 si5351;
 extern unsigned long freq;
 extern uint16_t tone_delay, tone_spacing; // JTencode
-
-
 
 void encode() // Loop through the string, transmitting one character at a time
 {

@@ -16,7 +16,7 @@ extern uint16_t tone_delay, tone_spacing; // JTencode
 extern char loc4[5];                      // 4 digit gridsquare locator
 extern char message1[14];                 // Message1 (13 char limit) for JT9
 extern char message2[14];                 // Message2 (13 char limit) for JT9
-extern char call[]; // JT9/WSPR Standard callsign
+extern char call[];                       // JT9/WSPR Standard callsign
 
 void setModeJT9_1()
 {

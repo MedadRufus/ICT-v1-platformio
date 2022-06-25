@@ -12,9 +12,6 @@
 #include <TinyGPS++.h>
 #include <TimeLib.h>
 
-
-
-
 radio si5351_radio;
 
 extern uint16_t tone_delay;
