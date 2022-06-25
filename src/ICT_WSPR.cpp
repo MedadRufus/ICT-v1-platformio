@@ -20,7 +20,6 @@
 
 #include "Wire.h"
 #include "ModeDef.h" // JT mode definitions
-#include "config.hpp"
 
 // Enumerations
 enum mode
@@ -35,7 +34,7 @@ JTEncode jtencode;
 // Global variables
 unsigned long freq;
 
-char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
+char call[] = "AA0AAA"; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 
 char call_telemetry[7]; // WSPR telemetry callsign
