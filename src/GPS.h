@@ -73,7 +73,7 @@ bool getUBX_ACK(uint8_t *MSG)
   }
 }
 
-void setGPS_AirBorne()
+bool setGPS_AirBorne()
 {
   bool gps_set_sucess = 0;
   uint8_t setdm6[] = {
@@ -82,14 +82,12 @@ void setGPS_AirBorne()
       0x05, 0x00, 0xFA, 0x00, 0xFA, 0x00, 0x64, 0x00, 0x2C,
       0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0xDC};
-  // while(!gps_set_sucess)
-  //{
+
   sendUBX(setdm6, sizeof(setdm6) / sizeof(uint8_t));
-  gps_set_sucess = getUBX_ACK(setdm6);
-  //}
+  return getUBX_ACK(setdm6);
 }
 
-void gps_reset()
+bool gps_reset()
 {
   /*
     Forced (Watchdog)
@@ -98,17 +96,15 @@ void gps_reset()
   bool gps_set_sucess = 0;
   uint8_t set_reset[] = {0xB5, 0x62, 0x06, 0x04, 0x04, 0x00, 0xFF, 0x87, 0x00, 0x00, 0x94, 0xF5};
   sendUBX(set_reset, sizeof(set_reset) / sizeof(uint8_t));
-  gps_set_sucess = getUBX_ACK(set_reset);
+  return getUBX_ACK(set_reset);
 }
 
-void gps_set_max_performance_mode()
+bool gps_set_max_performance_mode()
 {
   bool gps_set_sucess = 0;
   uint8_t setMax[] = {
       0xB5, 0x62, 0x06, 0x11, 0x02, 0x00, 0x08, 0x00, 0x21, 0x91};
-  // while (!gps_set_sucess)
-  //{
+
   sendUBX(setMax, sizeof(setMax) / sizeof(uint8_t));
-  gps_set_sucess = getUBX_ACK(setMax);
-  //}
+  return getUBX_ACK(setMax);
 }
