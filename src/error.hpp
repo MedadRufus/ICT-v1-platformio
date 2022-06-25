@@ -1,0 +1,1 @@
+void fault_action();
