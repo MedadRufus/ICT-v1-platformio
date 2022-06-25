@@ -15,7 +15,7 @@
 
 extern Si5351 si5351;
 
-radio_status_t radio_self_test()
+radio::radio_status_t radio::radio_self_test()
 {
     radio_status_t status;
     digitalWrite(SI5351_ENABLE_PIN, HIGH);
@@ -25,15 +25,15 @@ radio_status_t radio_self_test()
 
     if (!i2c_found)
     {
-        return failure;
+        return radio_status_t::failure;
     }
     else
     {
-        return success;
+        return radio_status_t::success;
     }
 }
 
-void rf_on()
+void radio::rf_on()
 {
     digitalWrite(SI5351_ENABLE_PIN, HIGH);
     delay(2);
@@ -42,7 +42,7 @@ void rf_on()
     si5351.output_enable(SI5351_CLK0, 0);                 // Disable the clock initially
 }
 
-void rf_off()
+void radio::rf_off()
 {
     digitalWrite(SI5351_ENABLE_PIN, LOW);
 }
