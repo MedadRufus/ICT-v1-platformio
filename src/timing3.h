@@ -1,6 +1,8 @@
 /*
    Timing Schedule - See readme file
 */
+radio si5351_radio;
+
 
 void TXtiming() // Timing
 {
@@ -11,7 +13,7 @@ void TXtiming() // Timing
 
     if ((minute() % 30 == 2) && (second() <= 2)) // Take data snapshot and start TX JT9 standard message
     {
-      rf_on();
+      si5351_radio.rf_on();
       loc8calc();      // Get position and update 4-char locator, 6-char locator and last 2 chars of 8-char locator
       genMessage1();   // Generate JT9 message type 1. Get callsign and 6-char locator
       genMessage2();   // Generate JT9 message type 2. Get altitude in meters and kmph speed. Send last 2 chars of 8-char locator, altitude and speed
@@ -22,20 +24,20 @@ void TXtiming() // Timing
       freq = JT9_FREQ;
       setModeJT9_1(); // set mode to JT9_1
       encode();       // begin radio transmission
-      rf_off();
+      si5351_radio.rf_off();
     }
     else if ((minute() % 30 == 3) && (second() <= 2) && (telemetry_set == true)) // TX JT9 telemetry
     {
-      rf_on();
+      si5351_radio.rf_on();
       // send_serial_data();
       freq = JT9_FREQ;
       setModeJT9_2(); // set mode to JT9_2
       encode();       // begin radio transmission
-      rf_off();
+      si5351_radio.rf_off();
     }
     else if ((minute() % 10 == 2) && (minute() % 30 != 2) && (second() <= 2)) // TX WSPR_1 standard message
     {
-      rf_on();
+      si5351_radio.rf_on();
       loc8calc();      // Get position and update 4-char locator, 6-char locator and last 2 chars of 8-char locator
       call_telem();    // Update WSPR telemetry callsign based on previous information : position and altitude in meters
       loc_dbm_telem(); // Update WSPR telemetry locator and dbm. Get temperature, voltage, speed in knots, GPS status and sats number
@@ -44,25 +46,25 @@ void TXtiming() // Timing
       freq = WSPR_FREQ;
       setModeWSPR(); // set WSPR standard mode
       encode();      // begin radio transmission
-      rf_off();
+      si5351_radio.rf_off();
     }
     else if ((((minute() % 10 == 6) && (minute() % 30 != 6)) || (minute() % 30 == 4)) && (second() <= 2) && (telemetry_set == true)) // TX WSPR_2 standard message
     {
-      rf_on();
+      si5351_radio.rf_on();
       // send_serial_data();
       freq = WSPR_FREQ;
       setModeWSPR(); // set WSPR standard mode
       encode();      // begin radio transmission
-      rf_off();
+      si5351_radio.rf_off();
     }
     else if ((((minute() % 10 == 4) && (minute() % 30 != 4)) || (minute() % 30 == 6)) && (second() <= 2) && (telemetry_set == true)) // TX WSPR telemetry message
     {
-      rf_on();
+      si5351_radio.rf_on();
       // send_serial_data();
       freq = WSPR_FREQ;
       setModeWSPR_telem(); // set WSPR telemetry mode
       encode();            // begin radio transmission
-      rf_off();
+      si5351_radio.rf_off();
     }
     else if ((minute() % 10 == 8) && (second() <= 2)) // Check location age/validity and software GPS reset if necessary
     {
