@@ -86,8 +86,6 @@ void TXtiming() // Timing
       {
         gpsHardware.gps_reset();
         delay(500);
-        gpsHardware.setGPS_AirBorne(); // set GPS into airborne mode
-        delay(500);
         gpsHardware.gps_set_max_performance_mode();
         delay(500);
       }
