@@ -36,8 +36,6 @@ TinyGPSPlus gps;
 Si5351 si5351;
 
 // Global variables
-unsigned long freq;
-
 char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 

@@ -13,9 +13,7 @@
 
 radio si5351_radio;
 
-extern uint16_t tone_delay;
-extern uint16_t tone_spacing;
-extern unsigned long freq;
+unsigned long freq;
 bool telemetry_set = false;
 extern TinyGPSPlus gps;
 
