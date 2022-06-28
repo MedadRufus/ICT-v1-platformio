@@ -16,6 +16,7 @@ radio si5351_radio;
 unsigned long freq;
 bool telemetry_set = false;
 extern TinyGPSPlus gps;
+extern GPS gpsHardware;
 
 void TXtiming() // Timing
 {
@@ -83,11 +84,11 @@ void TXtiming() // Timing
     {
       if (gps.location.age() > 600000)
       {
-        gps_reset();
+        gpsHardware.gps_reset();
         delay(500);
-        setGPS_AirBorne(); // set GPS into airborne mode
+        gpsHardware.setGPS_AirBorne(); // set GPS into airborne mode
         delay(500);
-        gps_set_max_performance_mode();
+        gpsHardware.gps_set_max_performance_mode();
         delay(500);
       }
     }
