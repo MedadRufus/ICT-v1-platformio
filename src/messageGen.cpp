@@ -8,7 +8,6 @@
 
 extern int alt_meters;
 extern char loc8[3];      // Last 2 digits of the 8-digit locator
-extern char loc8[3];      // Last 2 digits of the 8-digit locator
 extern char loc6[7];      // 6 digit gridsquare locator
 extern char message2[14]; // Message2 (13 char limit) for JT9
 extern char message1[14]; // Message1 (13 char limit) for JT9
