@@ -45,9 +45,6 @@ char call_telemetry[7]; // WSPR telemetry callsign
 char loc_telemetry[5];  // WSPR telemetry locator
 uint8_t dbm_telemetry;  // WSPR telemetry dbm
 
-char message1[14] = ""; // Message1 (13 char limit) for JT9
-char message2[14] = ""; // Message2 (13 char limit) for JT9
-
 char loc4[5]; // 4 digit gridsquare locator
 char loc6[7]; // 6 digit gridsquare locator
 char loc8[3]; // Last 2 digits of the 8-digit locator
