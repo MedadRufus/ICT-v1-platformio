@@ -42,8 +42,6 @@ char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 
 
-uint8_t tx_buffer[255];            // WSPR Tx buffer
-
 void setup()
 {
   // Init the watchdog timer with 10 second timeout

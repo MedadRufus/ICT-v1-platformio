@@ -11,7 +11,7 @@
 
 JTEncode jtencode;
 
-extern uint8_t tx_buffer[255];
+uint8_t tx_buffer[255];            // WSPR Tx buffer
 uint8_t symbol_count;
 extern Si5351 si5351;
 extern unsigned long freq;
@@ -19,7 +19,6 @@ uint16_t tone_delay, tone_spacing; // JTencode
 extern char call_telemetry[7];            // WSPR telemetry callsign
 extern char loc_telemetry[5];             // WSPR telemetry locator
 extern uint8_t dbm_telemetry;             // WSPR telemetry dbm
-extern uint8_t tx_buffer[255];            // WSPR Tx buffer
 extern char loc4[5];                      // 4 digit gridsquare locator
 extern char message1[14];                 // Message1 (13 char limit) for JT9
 extern char message2[14];                 // Message2 (13 char limit) for JT9
