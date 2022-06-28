@@ -16,7 +16,7 @@ extern long lat, lon, oldlat, oldlon; // used for location
 extern char loc4[5];                  // 4 digit gridsquare locator
 extern TinyGPSPlus gps;
 extern char loc_telemetry[5];     // WSPR telemetry locator
-extern byte Hour, Minute, Second; // used for timing
+byte Hour, Minute, Second; // used for timing
 extern char loc6[7];              // 6 digit gridsquare locator
 extern char loc8[3];              // Last 2 digits of the 8-digit locator
 extern char call_telemetry[7];    // WSPR telemetry callsign
