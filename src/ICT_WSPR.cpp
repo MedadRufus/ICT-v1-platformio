@@ -11,7 +11,6 @@
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 #include <si5351.h>
-#include <JTEncode.h>
 #include <rs_common.h>
 #include <int.h>
 #include <string.h>
@@ -36,7 +35,6 @@ enum mode
 };
 TinyGPSPlus gps;
 Si5351 si5351;
-JTEncode jtencode;
 
 // Global variables
 unsigned long freq;

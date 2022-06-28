@@ -5,7 +5,7 @@
 #include <JTEncode.h>
 #include "ModeDef.h"
 
-extern JTEncode jtencode;
+JTEncode jtencode;
 
 extern char call_telemetry[7];            // WSPR telemetry callsign
 extern char loc_telemetry[5];             // WSPR telemetry locator
