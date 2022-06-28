@@ -21,7 +21,7 @@ extern char loc6[7];              // 6 digit gridsquare locator
 extern char loc8[3];              // Last 2 digits of the 8-digit locator
 extern char call_telemetry[7];    // WSPR telemetry callsign
 int Sats = 0;
-extern int gps_speed;
+int gps_speed = 0;
 extern uint8_t dbm_telemetry; // WSPR telemetry dbm
 
 void setGPStime() // Sets system time from GPS

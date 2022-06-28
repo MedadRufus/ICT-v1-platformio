@@ -56,7 +56,6 @@ long lat, lon, oldlat, oldlon;     // used for location
 uint8_t tx_buffer[255];            // WSPR Tx buffer
 
 bool telemetry_set = false;
-int gps_speed = 0;
 
 void setup()
 {
