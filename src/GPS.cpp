@@ -5,7 +5,7 @@
 #include "comm_ports.hpp"
 #include "Arduino.h"
 
-GPS::GPS(/* args */)
+GPS::GPS()
 {
 }
 
