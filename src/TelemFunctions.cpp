@@ -12,18 +12,17 @@
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 
-extern long lat, lon, oldlat, oldlon; // used for location
-extern char loc4[5];                  // 4 digit gridsquare locator
+long lat, lon, oldlat, oldlon; // used for location
+char loc4[5];                  // 4 digit gridsquare locator
+char loc6[7];                  // 6 digit gridsquare locator
+char loc8[3];                  // Last 2 digits of the 8-digit locatorextern TinyGPSPlus gps;
 extern TinyGPSPlus gps;
-extern char loc_telemetry[5];     // WSPR telemetry locator
-extern byte Hour, Minute, Second; // used for timing
-extern char loc6[7];              // 6 digit gridsquare locator
-extern char loc8[3];              // Last 2 digits of the 8-digit locator
-extern char call_telemetry[7];    // WSPR telemetry callsign
-extern int alt_meters;
-extern int Sats;
-extern int gps_speed;
-extern uint8_t dbm_telemetry; // WSPR telemetry dbm
+byte Hour, Minute, Second; // used for timing
+char call_telemetry[7];    // WSPR telemetry callsign
+char loc_telemetry[5];     // WSPR telemetry locator
+int Sats = 0;
+int gps_speed = 0;
+uint8_t dbm_telemetry; // WSPR telemetry dbm
 
 void setGPStime() // Sets system time from GPS
 {
@@ -84,7 +83,7 @@ void loc8calc() // Calculates full locator from GPS
 void call_telem()
 {
 
-  alt_meters = gps.altitude.meters();
+  double alt_meters = gps.altitude.meters();
 
   /*
     char MH[8] = {'A', 'A', '0', '0', 'A', 'A', '0', '0'}; // Full locator characters

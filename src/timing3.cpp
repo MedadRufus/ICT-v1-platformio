@@ -5,7 +5,6 @@
 #include "TelemFunctions.h"
 #include "encode.h"
 #include "GPS.h"
-#include "setMode.h"
 #include "ModeDef.h"
 #include "Arduino.h"
 #include "messageGen.h"
@@ -14,10 +13,8 @@
 
 radio si5351_radio;
 
-extern uint16_t tone_delay;
-extern uint16_t tone_spacing;
-extern unsigned long freq;
-extern bool telemetry_set;
+unsigned long freq;
+bool telemetry_set = false;
 extern TinyGPSPlus gps;
 
 void TXtiming() // Timing
