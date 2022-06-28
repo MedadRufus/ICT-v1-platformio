@@ -39,7 +39,6 @@ Si5351 si5351;
 char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 
-
 void setup()
 {
   // Init the watchdog timer with 10 second timeout
