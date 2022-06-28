@@ -11,7 +11,6 @@
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 #include <si5351.h>
-#include <JTEncode.h>
 #include <rs_common.h>
 #include <int.h>
 #include <string.h>
@@ -21,6 +20,12 @@
 #include "ModeDef.h" // JT mode definitions
 #include "config.hpp"
 
+#include "TelemFunctions.h" // various telemetry functions
+#include "encode.h"         // symbol encoding
+#include "messageGen.h"     // telemetry > message generation
+#include "GPS.h"            // code to set U-Blox GPS into airborne mode
+#include "timing3.h"        // scheduling
+
 // Enumerations
 enum mode
 {
@@ -29,42 +34,10 @@ enum mode
 };
 TinyGPSPlus gps;
 Si5351 si5351;
-JTEncode jtencode;
 
 // Global variables
-unsigned long freq;
-
 char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
-
-char call_telemetry[7]; // WSPR telemetry callsign
-char loc_telemetry[5];  // WSPR telemetry locator
-uint8_t dbm_telemetry;  // WSPR telemetry dbm
-
-char message1[14] = ""; // Message1 (13 char limit) for JT9
-char message2[14] = ""; // Message2 (13 char limit) for JT9
-
-char loc4[5]; // 4 digit gridsquare locator
-char loc6[7]; // 6 digit gridsquare locator
-char loc8[3]; // Last 2 digits of the 8-digit locator
-
-byte Hour, Minute, Second;         // used for timing
-long lat, lon, oldlat, oldlon;     // used for location
-uint8_t tx_buffer[255];            // WSPR Tx buffer
-uint8_t symbol_count;              // JTencode
-uint16_t tone_delay, tone_spacing; // JTencode
-
-int alt_meters = 0;
-bool telemetry_set = false;
-int Sats = 0;
-int gps_speed = 0;
-
-#include "TelemFunctions.h" // various telemetry functions
-#include "encode.h"         // symbol encoding
-#include "setMode.h"        // mode functions
-#include "messageGen.h"     // telemetry > message generation
-#include "GPS.h"            // code to set U-Blox GPS into airborne mode
-#include "timing3.h"        // scheduling
 
 void setup()
 {
