@@ -5,7 +5,6 @@
 #include "TelemFunctions.h"
 #include "encode.h"
 #include "GPS.h"
-#include "setMode.h"
 #include "ModeDef.h"
 #include "Arduino.h"
 #include "messageGen.h"

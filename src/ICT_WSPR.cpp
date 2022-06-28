@@ -22,7 +22,6 @@
 
 #include "TelemFunctions.h" // various telemetry functions
 #include "encode.h"         // symbol encoding
-#include "setMode.h"        // mode functions
 #include "messageGen.h"     // telemetry > message generation
 #include "GPS.h"            // code to set U-Blox GPS into airborne mode
 #include "timing3.h"        // scheduling
