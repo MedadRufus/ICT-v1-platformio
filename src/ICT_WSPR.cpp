@@ -42,7 +42,6 @@ char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 
 
-long lat, lon, oldlat, oldlon;     // used for location
 uint8_t tx_buffer[255];            // WSPR Tx buffer
 
 void setup()

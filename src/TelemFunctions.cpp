@@ -12,7 +12,7 @@
 #include <TimeLib.h>
 #include <TinyGPS++.h>
 
-extern long lat, lon, oldlat, oldlon; // used for location
+long lat, lon, oldlat, oldlon;     // used for location
 char loc4[5]; // 4 digit gridsquare locator
 char loc6[7]; // 6 digit gridsquare locator
 char loc8[3]; // Last 2 digits of the 8-digit locatorextern TinyGPSPlus gps;
