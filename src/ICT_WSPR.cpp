@@ -61,7 +61,6 @@ uint8_t tx_buffer[255];            // WSPR Tx buffer
 uint8_t symbol_count;              // JTencode
 uint16_t tone_delay, tone_spacing; // JTencode
 
-int alt_meters = 0;
 bool telemetry_set = false;
 int Sats = 0;
 int gps_speed = 0;

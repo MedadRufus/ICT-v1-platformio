@@ -20,7 +20,6 @@ extern byte Hour, Minute, Second; // used for timing
 extern char loc6[7];              // 6 digit gridsquare locator
 extern char loc8[3];              // Last 2 digits of the 8-digit locator
 extern char call_telemetry[7];    // WSPR telemetry callsign
-extern int alt_meters;
 extern int Sats;
 extern int gps_speed;
 extern uint8_t dbm_telemetry; // WSPR telemetry dbm
@@ -84,7 +83,7 @@ void loc8calc() // Calculates full locator from GPS
 void call_telem()
 {
 
-  alt_meters = gps.altitude.meters();
+  double alt_meters = gps.altitude.meters();
 
   /*
     char MH[8] = {'A', 'A', '0', '0', 'A', 'A', '0', '0'}; // Full locator characters
