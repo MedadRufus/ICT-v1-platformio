@@ -15,14 +15,13 @@
 extern long lat, lon, oldlat, oldlon; // used for location
 extern char loc4[5];                  // 4 digit gridsquare locator
 extern TinyGPSPlus gps;
-extern char loc_telemetry[5];     // WSPR telemetry locator
 byte Hour, Minute, Second; // used for timing
 extern char loc6[7];              // 6 digit gridsquare locator
 extern char loc8[3];              // Last 2 digits of the 8-digit locator
-extern char call_telemetry[7];    // WSPR telemetry callsign
-int Sats = 0;
+char call_telemetry[7]; // WSPR telemetry callsign
+char loc_telemetry[5];  // WSPR telemetry locatorint Sats = 0;
 int gps_speed = 0;
-extern uint8_t dbm_telemetry; // WSPR telemetry dbm
+uint8_t dbm_telemetry;  // WSPR telemetry dbm
 
 void setGPStime() // Sets system time from GPS
 {

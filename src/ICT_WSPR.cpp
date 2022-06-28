@@ -41,9 +41,6 @@ unsigned long freq;
 char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
 // uint8_t dbm; // dbm field of WSPR
 
-char call_telemetry[7]; // WSPR telemetry callsign
-char loc_telemetry[5];  // WSPR telemetry locator
-uint8_t dbm_telemetry;  // WSPR telemetry dbm
 
 char loc4[5]; // 4 digit gridsquare locator
 char loc6[7]; // 6 digit gridsquare locator
