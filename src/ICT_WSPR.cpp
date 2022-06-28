@@ -34,6 +34,7 @@ enum mode
 };
 TinyGPSPlus gps;
 Si5351 si5351;
+GPS gpsHardware;
 
 // Global variables
 char call[] = CALL_SIGN; // JT9/WSPR Standard callsign
@@ -48,9 +49,9 @@ void setup()
   delay(1000);                          // Allow GPS time to start
   gpsSerial.begin(9600);
   delay(1000);       // gpsSerial time to start
-  setGPS_AirBorne(); // Set GPS into airborne mode
+  gpsHardware.setGPS_AirBorne(); // Set GPS into airborne mode
   delay(500);
-  gps_set_max_performance_mode(); // Set GPS into high performance mode
+  gpsHardware.gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
   debugSerial.println(F("START"));
   IWatchdog.reload();

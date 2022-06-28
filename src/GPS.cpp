@@ -5,7 +5,15 @@
 #include "comm_ports.hpp"
 #include "Arduino.h"
 
-void sendUBX(uint8_t *MSG, uint8_t len)
+GPS::GPS(/* args */)
+{
+}
+
+GPS::~GPS()
+{
+}
+
+void GPS::sendUBX(uint8_t *MSG, uint8_t len)
 {
   gpsSerial.flush();
   gpsSerial.write(0xFF);
@@ -16,7 +24,7 @@ void sendUBX(uint8_t *MSG, uint8_t len)
   }
 }
 
-bool getUBX_ACK(uint8_t *MSG)
+bool GPS::getUBX_ACK(uint8_t *MSG)
 {
   uint8_t b;
   uint8_t ackByteID = 0;
@@ -74,7 +82,7 @@ bool getUBX_ACK(uint8_t *MSG)
   }
 }
 
-bool setGPS_AirBorne()
+bool GPS::setGPS_AirBorne()
 {
   bool gps_set_sucess = 0;
   uint8_t setdm6[] = {
@@ -88,7 +96,7 @@ bool setGPS_AirBorne()
   return getUBX_ACK(setdm6);
 }
 
-bool gps_reset()
+bool GPS::gps_reset()
 {
   /*
     Forced (Watchdog)
@@ -100,7 +108,7 @@ bool gps_reset()
   return getUBX_ACK(set_reset);
 }
 
-bool gps_set_max_performance_mode()
+bool GPS::gps_set_max_performance_mode()
 {
   bool gps_set_sucess = 0;
   uint8_t setMax[] = {
