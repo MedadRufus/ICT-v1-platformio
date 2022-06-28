@@ -19,7 +19,8 @@ byte Hour, Minute, Second; // used for timing
 extern char loc6[7];              // 6 digit gridsquare locator
 extern char loc8[3];              // Last 2 digits of the 8-digit locator
 char call_telemetry[7]; // WSPR telemetry callsign
-char loc_telemetry[5];  // WSPR telemetry locatorint Sats = 0;
+char loc_telemetry[5];  // WSPR telemetry locator
+int Sats = 0;
 int gps_speed = 0;
 uint8_t dbm_telemetry;  // WSPR telemetry dbm
 
