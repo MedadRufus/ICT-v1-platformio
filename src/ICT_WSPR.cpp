@@ -55,8 +55,6 @@ char loc8[3]; // Last 2 digits of the 8-digit locator
 byte Hour, Minute, Second;         // used for timing
 long lat, lon, oldlat, oldlon;     // used for location
 uint8_t tx_buffer[255];            // WSPR Tx buffer
-uint8_t symbol_count;              // JTencode
-uint16_t tone_delay, tone_spacing; // JTencode
 
 bool telemetry_set = false;
 int Sats = 0;

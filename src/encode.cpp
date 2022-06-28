@@ -12,10 +12,10 @@
 JTEncode jtencode;
 
 extern uint8_t tx_buffer[255];
-extern uint8_t symbol_count;
+uint8_t symbol_count;
 extern Si5351 si5351;
 extern unsigned long freq;
-extern uint16_t tone_delay, tone_spacing; // JTencode
+uint16_t tone_delay, tone_spacing; // JTencode
 extern char call_telemetry[7];            // WSPR telemetry callsign
 extern char loc_telemetry[5];             // WSPR telemetry locator
 extern uint8_t dbm_telemetry;             // WSPR telemetry dbm
