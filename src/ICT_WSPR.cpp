@@ -55,8 +55,6 @@ char loc8[3]; // Last 2 digits of the 8-digit locator
 long lat, lon, oldlat, oldlon;     // used for location
 uint8_t tx_buffer[255];            // WSPR Tx buffer
 
-bool telemetry_set = false;
-
 void setup()
 {
   // Init the watchdog timer with 10 second timeout

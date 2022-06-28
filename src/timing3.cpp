@@ -16,7 +16,7 @@ radio si5351_radio;
 extern uint16_t tone_delay;
 extern uint16_t tone_spacing;
 extern unsigned long freq;
-extern bool telemetry_set;
+bool telemetry_set = false;
 extern TinyGPSPlus gps;
 
 void TXtiming() // Timing
