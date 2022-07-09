@@ -13,7 +13,6 @@ public:
    GPS();
    ~GPS();
 
-   bool setGPS_AirBorne();
    bool gps_reset();
    bool gps_set_max_performance_mode();
 };

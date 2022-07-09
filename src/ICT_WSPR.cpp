@@ -49,8 +49,6 @@ void setup()
   delay(1000);                          // Allow GPS time to start
   gpsSerial.begin(9600);
   delay(1000);       // gpsSerial time to start
-  gpsHardware.setGPS_AirBorne(); // Set GPS into airborne mode
-  delay(500);
   gpsHardware.gps_set_max_performance_mode(); // Set GPS into high performance mode
   delay(500);
   debugSerial.println(F("START"));
